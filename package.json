@@ -1,0 +1,41 @@
+{
+  "name": "minecraft-twitch-chat",
+  "productName": "Minecraft Twitch Chat",
+  "description": "Display the chat from one or more Twitch channels in the Minecraft chat.",
+  "version": "1.0.0",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "npm run build && node build/index.js",
+    "dev": "nodemon"
+  },
+  "author": {
+    "name": "LACHAUX Rémi",
+    "email": "contact@remi-lachaux.fr",
+    "url": "https://www.remi-lachaux.fr"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=19.5.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "pino": "^8.16.1",
+    "rcon-client": "^4.2.3",
+    "tmi.js": "^1.8.5"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
+    "@types/node": "*",
+    "@types/tmi.js": "^1.8.5",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
