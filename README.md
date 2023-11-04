@@ -42,6 +42,6 @@ Build the project
 
 [MIT](LICENSE)
 
-## Auteurs
+## Authors
 
 - [@lachaux-remi](https://www.github.com/lachaux-remi)
