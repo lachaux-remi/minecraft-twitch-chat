@@ -5,7 +5,6 @@ import { logger } from "../app";
 class ClientRcon {
   private _rcon: Rcon | null = null;
   private retryTimer: NodeJS.Timeout | null = null;
-  private waitingCommandsList: string[] = [];
 
   public connect(): void {
     const rcon = new Rcon({
@@ -28,22 +27,24 @@ class ClientRcon {
 
         this.clearRetryTimer();
         this._rcon = rcon;
-
-        this.waitingCommandsList.forEach(command => this.send(command));
       })
       .catch(error => {
-        logger.error("Erreur lors de la connexion RCON :", error);
+        logger.error("Erreur lors de la connexion RCON");
+        logger.debug(error);
+
         this.restartRetryTimer();
       });
   }
 
   public send(command: string): void {
     if (!this._rcon) {
-      this.waitingCommandsList.push(command);
       return;
     }
 
-    this._rcon!.send(command).catch(error => logger.error("Erreur lors de l'envoi de la commande RCON :", error));
+    this._rcon.send(command).catch(error => {
+      logger.error("Erreur lors de l'envoi de la commande RCON");
+      logger.debug(error);
+    });
   }
 
   private clearRetryTimer(): void {
@@ -55,7 +56,9 @@ class ClientRcon {
 
   private restartRetryTimer(): void {
     this.clearRetryTimer();
-    if (this.retryTimer) {
+    this._rcon = null;
+
+    if (!this.retryTimer) {
       this.retryTimer = setTimeout(() => this.connect(), 5000);
     }
   }
