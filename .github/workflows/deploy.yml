@@ -15,4 +15,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           known_hosts: ${{ secrets.SSH_KNOWN_HOST }}
       - name: Deploy
-        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT }} "cd ${{ secrets.DIR }} && rm -Rf dist/ node_modules/ && git stash save --keep-index && git pull && npm install && npm run build && pm2 flush -s ${{ secrets.PROJECT_NAME }} && pm2 restart -s ${{ secrets.PROJECT }} && pm2 reset -s ${{ secrets.PROJECT }}"
+        run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} -p ${{ secrets.SSH_PORT }} "cd ${{ secrets.DIR }} && rm -Rf dist/ node_modules/ && git stash save --keep-index && git pull && npm install && npm run build && pm2 flush -s ${{ secrets.PROJECT_NAME }} && pm2 restart -s ${{ secrets.PROJECT_NAME }} && pm2 reset -s ${{ secrets.PROJECT_NAME }}"
