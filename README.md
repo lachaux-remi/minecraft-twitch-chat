@@ -38,7 +38,7 @@ Build the project
   pnpm run build
 ```
 
-## Licence
+## License
 
 [MIT](LICENSE)
 
