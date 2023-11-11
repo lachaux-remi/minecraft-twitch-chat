@@ -50,7 +50,7 @@ class ChatListener {
     const badges: string[] = [`""`];
     if (userState.badges?.broadcaster) {
       badges.push(
-        process.env.TELLRAW_MESSAGE_TWITCH_BADGE_BRODCASTER || `{"text":"📽","color":"#e91915"},{"text":" "}`
+        process.env.TELLRAW_MESSAGE_TWITCH_BADGE_BROADCASTER || `{"text":"📽","color":"#e91915"},{"text":" "}`
       );
     } else {
       if (userState.badges?.moderator) {
