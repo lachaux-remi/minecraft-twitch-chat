@@ -2,7 +2,7 @@
   "name": "minecraft-twitch-chat",
   "productName": "Minecraft Twitch Chat",
   "description": "Display the chat from one or more Twitch channels in the Minecraft chat.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc",
